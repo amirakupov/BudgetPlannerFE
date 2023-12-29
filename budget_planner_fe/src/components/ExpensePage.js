@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import './ExpensePage.css';
 const ExpensePage = () => {
   const [expenseData, setExpenseData] = useState({ amount: 0, name: '', comment: '', isMonthly: false });
 
@@ -25,9 +25,9 @@ const ExpensePage = () => {
   };
 
   return (
-    <div>
+    <div className="expense-page-container">
       <h2>Expense Page</h2>
-      <form onSubmit={addExpense}>
+      <form onSubmit={addExpense} onSubmit={addExpense} className="expense-form">
         <label>
           Name of Expense:
           <input type="text" name="name" value={expenseData.name} onChange={handleInputChange} />

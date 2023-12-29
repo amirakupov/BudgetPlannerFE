@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import './IncomePage.css';
 const IncomePage = () => {
   const [incomeData, setIncomeData] = useState({ amount: 0, name: '', isMonthly: false, comment: ''});
   const [loadingBalance, setLoadingBalance] = useState(false);
@@ -28,9 +28,9 @@ const IncomePage = () => {
   };
 
   return (
-    <div>
+    <div className="income-page-container">
       <h2>Income Page</h2>
-      <form onSubmit={addIncome}>
+      <form onSubmit={addIncome} className="income-form">
         <label>
           Name of Income:
           <input type="text" name="name" value={incomeData.name} onChange={handleInputChange} />
