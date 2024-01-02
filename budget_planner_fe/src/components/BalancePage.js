@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './BalancePage.css'; // Импорт файла стилей
 
 const BalancePage = () => {
-  const [balance, setBalance] = useState(null);
+  const [balance, setBalance] = useState(0);
 
   useEffect(() => {
     fetch('http://127.0.0.1:8000/balance')
