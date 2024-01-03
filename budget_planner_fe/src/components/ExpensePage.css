@@ -10,29 +10,48 @@ h2 {
 }
 
 .expense-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
-label {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 20px;
+.expense-form label {
+    margin-bottom: 15px;
 }
 
-input[type='text'],
-input[type='number'],
-input[type='checkbox'] {
-    padding: 8px;
+.expense-form input[type='text'],
+.expense-form input[type='number']{
+    width: 100%;
+    padding: 10px;
     font-size: 1em;
     margin-top: 5px;
+    box-sizing: border-box;
+    border: 1px solid #adf7d6;
+    border-radius: 3px;
+}
+.expense-form input[type='checkbox'] {
+    width: 20px;
+    height: 20px;
+    margin-top: 5px;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: 1px solid #adf7d6;
+    border-radius: 3px;
+}
+.expense-form input[type='checkbox']:checked {
+    background-color: #30c280;
 }
 
-button {
-    padding: 10px 20px;
+.expense-form button {
+    width: 100%;
+    padding: 10px;
     font-size: 1em;
-    background-color: #3498db;
+    background-color: #30c280;
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -40,23 +59,20 @@ button {
     transition: background-color 0.3s ease;
 }
 
-button:hover {
-    background-color: #2980b9;
-}
-
-
 @media screen and (max-width: 768px) {
-    .expense-page-container {
-        padding: 30px;
+    .expense-form {
+        padding: 15px;
+        max-width: 80%;
     }
 
-    h2 {
-        font-size: 1.5em;
+    .expense-form label {
+        margin-bottom: 10px;
     }
 
-    input[type='text'],
-    input[type='number'],
-    input[type='checkbox'] {
-        width: 80%;
+    .expense-form input[type='text'],
+    .expense-form input[type='number'],
+    .expense-form input[type='checkbox'] {
+        font-size: 0.9em;
     }
 }
+

@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
+import { Form, Button } from 'react-bootstrap';
 import './ExpensePage.css';
+
 const ExpensePage = () => {
   const [expenseData, setExpenseData] = useState({ amount: 0, name: '', comment: '', isMonthly: false });
 
@@ -25,46 +27,36 @@ const ExpensePage = () => {
   };
 
   return (
-    <div className="expense-page-container">
-      <h2>Expense Page</h2>
-      <form onSubmit={addExpense} onSubmit={addExpense} className="expense-form">
-        <label>
-          Name of Expense:
-          <input type="text" name="name" value={expenseData.name} onChange={handleInputChange} />
-        </label>
-        <label>
-          Amount:
-          <input
-            type="number"
-            name="amount"
-            value={expenseData.amount}
-            onChange={handleInputChange}
-          />
-        </label>
-        <label>
-          Comment:
-          <input
-            type="text"
-            name="comment"
-            value={expenseData.comment}
-            onChange={handleInputChange}
-          />
-        </label>
-        <label>
-          Regular Expense:
-          <input
-            type="checkbox"
-            name="isMonthly"
-            checked={expenseData.isMonthly}
-            onChange={() =>
-              setExpenseData({ ...expenseData, isMonthly: !expenseData.isMonthly })
-            }
-          />
-        </label>
-        <button type="submit">Add Expense</button>
-      </form>
-    </div>
+      <div className="expense-page-container">
+        <h2>Add Expense</h2>
+        <Form onSubmit={addExpense} className="expense-form">
+          <Form.Group controlId="expenseName">
+            <Form.Label>Name of Expense:</Form.Label>
+            <Form.Control type="text" name="name" value={expenseData.name} onChange={handleInputChange} />
+          </Form.Group>
+          <Form.Group controlId="expenseAmount">
+            <Form.Label>Amount:</Form.Label>
+            <Form.Control type="number" name="amount" value={expenseData.amount} onChange={handleInputChange} />
+          </Form.Group>
+          <Form.Group controlId="expenseComment">
+            <Form.Label>Comment:</Form.Label>
+            <Form.Control type="text" name="comment" value={expenseData.comment} onChange={handleInputChange} />
+          </Form.Group>
+          <Form.Group controlId="regularExpense">
+            <Form.Check
+                type="checkbox"
+                label="Regular Expense"
+                checked={expenseData.isMonthly}
+                onChange={() => setExpenseData({ ...expenseData, isMonthly: !expenseData.isMonthly })}
+            />
+          </Form.Group>
+          <Button variant="primary" type="submit">
+            Add
+          </Button>
+        </Form>
+      </div>
   );
 };
 
 export default ExpensePage;
+
