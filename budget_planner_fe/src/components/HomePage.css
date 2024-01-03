@@ -12,7 +12,7 @@ h1 {
 .balance-link {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #3498db;
+    background-color: #30c280;
     color: #fff;
     text-decoration: none;
     border-radius: 5px;
@@ -20,7 +20,7 @@ h1 {
 }
 
 .balance-link:hover {
-    background-color: #2980b9;
+    background-color: #30c280;
 }
 
 
