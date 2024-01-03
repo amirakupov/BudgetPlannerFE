@@ -8,6 +8,9 @@ import BalancePage from './components/BalancePage';
 import IncomePage from './components/IncomePage';
 import ExpensePage from './components/ExpensePage';
 
+import StartingPage from './components/StartingPage';
+import Register from './Register';
+
 const App = () => {
   return (
       <Router>
@@ -37,8 +40,9 @@ const App = () => {
             </Container>
           </Navbar>
 
-          <Routes>
-            <Route path="/" element={<HomePage />} />
+          <Routes> 
+            <Route path="/" element={<Register />} />
+            <Route path="/homepage" element={<HomePage />} />
             <Route path="/balance" element={<BalancePage />} />
             <Route path="/income" element={<IncomePage />} />
             <Route path="/expense" element={<ExpensePage />} />
