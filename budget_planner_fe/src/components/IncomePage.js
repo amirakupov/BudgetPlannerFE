@@ -30,31 +30,56 @@ const IncomePage = () => {
   return (
       <div className="income-page-container">
         <h2>Income Page</h2>
-        <Form onSubmit={addIncome} className="income-form">
-          <Form.Group controlId="incomeName">
-            <Form.Label>Name of Income:</Form.Label>
-            <Form.Control type="text" name="name" value={incomeData.name} onChange={handleInputChange} />
-          </Form.Group>
-          <Form.Group controlId="incomeAmount">
-            <Form.Label>Amount:</Form.Label>
-            <Form.Control type="number" name="amount" value={incomeData.amount} onChange={handleInputChange} />
-          </Form.Group>
-          <Form.Group controlId="incomeComment">
-            <Form.Label>Comment:</Form.Label>
-            <Form.Control type="text" name="comment" value={incomeData.comment} onChange={handleInputChange} />
-          </Form.Group>
-          <Form.Group controlId="regularIncome">
-            <Form.Check
-                type="checkbox"
-                label="Regular Income"
-                checked={incomeData.isMonthly}
-                onChange={() => setIncomeData({ ...incomeData, isMonthly: !incomeData.isMonthly })}
+        <form onSubmit={addIncome} className="income-form">
+          <label>
+            Name of Income:
+            <input type="text" name="name" value={incomeData.name} onChange={handleInputChange} />
+          </label>
+          <label>
+            Amount:
+            <input
+                type="number"
+                name="amount"
+                value={incomeData.amount}
+                onChange={handleInputChange}
             />
-          </Form.Group>
-          <Button variant="primary" type="submit">
-            Add Income
-          </Button>
-        </Form>
+          </label>
+          <label>
+            Description:
+            <input
+                type="text"
+                name="description"
+                value={incomeData.description}
+                onChange={handleInputChange}
+            />
+          </label>
+          <label>
+            Regular Income:
+            <input
+                type="checkbox"
+                name="isMonthly"
+                checked={incomeData.isMonthly}
+                onChange={() =>
+                    setIncomeData({ ...incomeData, isMonthly: !incomeData.isMonthly })
+                }
+            />
+          </label>
+          <label>
+            Category:
+            <select
+                name="category"
+                value={incomeData.category}
+                onChange={handleInputChange}
+            >
+              <option value="">Select category</option>
+              <option value="Salary">Salary</option>
+              <option value="Investment Dividends">Investment Dividends</option>
+              <option value="Capital Gain">Capital Gain</option>
+              <option value="Additional Income">Additional Income</option>
+            </select>
+          </label>
+          <button type="submit">Add income</button>
+        </form>
       </div>
   );
 };
