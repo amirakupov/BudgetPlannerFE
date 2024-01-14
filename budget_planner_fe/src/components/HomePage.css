@@ -16,11 +16,113 @@ h1 {
     color: #fff;
     text-decoration: none;
     border-radius: 5px;
+    margin-right: 5px;
+    margin-bottom: 50px;
     transition: background-color 0.3s ease;
 }
 
 .balance-link:hover {
     background-color: #30c280;
+}
+.income-button {
+    /* Специфичные стили для кнопки Add Income */
+    background-color: #2ecc71;
+}
+
+.expense-button {
+    /* Специфичные стили для кнопки Add Expense */
+    background-color: #e74c3c;
+}
+
+
+/*charts*/
+.charts-container {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 20px;
+    align-items: center;
+    margin-bottom: 10px !important;
+}
+
+.mini-chart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mini-chart canvas {
+    margin-bottom: 10px;
+}
+
+.labels-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* Располагаем лэйблы справа в контейнере */
+    justify-content: center;
+}
+
+#chartCanvas {
+    max-width: 300px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.label-item {
+    display: flex;
+    align-items: center;
+}
+
+.color-marker {
+    width: 10px;
+    height: 10px;
+    margin-right: 5px;
+}
+
+@media (min-width: 768px) {
+    /* Стили для компьютерной версии */
+    #chartCanvas {
+        max-width: 600px;
+    }
+
+    .mini-chart {
+        grid-column: 1 / span 1; /* Определяем расположение круговой диаграммы в первом столбце */
+    }
+
+    .labels-container {
+        grid-column: 2 / span 1;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start; /* Располагаем лэйблы в начале столбца */
+    }
+
+    .mini-chart canvas {
+        max-width: 300px;
+        max-height: 300px;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+@media (max-width: 767px) {
+    .charts-container {
+        grid-template-columns: 1fr;
+        align-items: flex-start;
+        gap: 20px;
+        margin-bottom: 20px !important;
+    }
+
+    .labels-container {
+        align-items: flex-start;
+    }
+
+    .mini-chart canvas {
+        max-width: 150px;
+        max-height: 150px;
+    }
+    .balance-link {
+        padding: 8px 16px;
+        margin-bottom: 30px;
+    }
 }
 
 
