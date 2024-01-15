@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import './IncomePage.css';
+import ChartsComponent from "./ChartsComponent";
 
 const IncomePage = () => {
   const [incomeData, setIncomeData] = useState({ amount: 0, name: '', isMonthly: false, comment: '' });
@@ -61,4 +62,5 @@ const IncomePage = () => {
 
 
 export default IncomePage;
+
 
