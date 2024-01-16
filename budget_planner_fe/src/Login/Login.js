@@ -2,6 +2,7 @@ import {useState,useEffect,useRef, useContext} from "react"
 import {Link, useNavigate} from 'react-router-dom'
 import AuthContext from "../context/AuthProvider";
 import axios from "axios";
+import './Login.css';
 
 const LOGIN_URL = 'http://localhost:8000/login';
 
@@ -62,7 +63,7 @@ const Login = () => {
  }
 
   return(
-    <>
+    <div className="auth-container">
       {success ? (
         <section>
           <h1>You are logged in!</h1>
@@ -109,7 +110,7 @@ const Login = () => {
 
     </section>
       )}
-      </>
+      </div>
   )
 }
 
