@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+ @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
 
 * {
     margin: 0;
@@ -14,7 +14,7 @@ html {
 
 body {
     min-height: 100vh;
-    background-color: #426b1f;
+    background-color: #92b359;
 }
 
 .App {
@@ -112,4 +112,4 @@ button {
 
 .line {
     display: inline-block;
-} 
+}  

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import './IncomePage.css';
 import ChartsComponent from "./ChartsComponent";
+import Sidebar from './Sidebar';
 
 const IncomePage = () => {
   const [incomeData, setIncomeData] = useState({ amount: 0, name: '', isMonthly: false, comment: '' });
@@ -30,6 +31,7 @@ const IncomePage = () => {
 
   return (
       <div className="income-page-container">
+        <Sidebar />
         <h2>Income Page</h2>
         <Form onSubmit={addIncome} className="income-form">
           <Form.Group controlId="incomeName">

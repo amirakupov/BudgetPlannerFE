@@ -1,7 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import './BalancePage.css'; // Импорт файла стилей
+import Sidebar from './Sidebar';
+import { useNavigate } from 'react-router-dom';
+import AuthContext from '../context/AuthProvider';
 
 const BalancePage = () => {
+  const { logout } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logout();
+    navigate("/");
+};
+
   const [balance, setBalance] = useState(0);
 
   useEffect(() => {
@@ -17,6 +28,8 @@ const BalancePage = () => {
 
   return (
       <div className="balance-page-container">
+        <Sidebar />
+        <button onClick={handleLogout}>Logout</button>
         <h1>Balance Page</h1>
         {balance !== null ? (
             <p>Your Balance: {balance}</p>

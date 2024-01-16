@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import './ExpensePage.css';
+import Sidebar from './Sidebar';
 
 const ExpensePage = () => {
   const [expenseData, setExpenseData] = useState({ amount: 0, name: '', comment: '', isMonthly: false });
@@ -28,6 +29,7 @@ const ExpensePage = () => {
 
   return (
       <div className="expense-page-container">
+        <Sidebar />
         <h2>Add Expense</h2>
         <Form onSubmit={addExpense} className="expense-form">
           <Form.Group controlId="expenseName">

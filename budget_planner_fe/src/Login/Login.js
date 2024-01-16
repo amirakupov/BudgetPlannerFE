@@ -42,7 +42,7 @@ const Login = () => {
         console.log(response.data);
         if(response.data.message === "Login successful"){
           setAuthUser({user});
-          navigate('/balance')
+          navigate('/homepage')
           setUser("")
           setPwd("")
           setSuccess(true);

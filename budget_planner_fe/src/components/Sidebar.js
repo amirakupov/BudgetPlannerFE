@@ -16,7 +16,7 @@ const Sidebar = () => {
                 </label>
             </div>
             <div id="nav-content">
-                <Link to="/" className="nav-button">
+                <Link to="/homepage" className="nav-button">
                     <FontAwesomeIcon icon={faHome} />
                     <span>Home</span>
                 </Link>

@@ -10,8 +10,13 @@ export const AuthProvider = ({children}) => {
     setAuth({ user: username });
   };
 
+  const logout = () => {
+    // Authentifizierungsstatus zurücksetzen
+    setAuth({});
+  };
+
   return(
-    <AuthContext.Provider value={{auth, setAuthUser}}>
+    <AuthContext.Provider value={{auth, setAuthUser, logout}}>
       {children}
     </AuthContext.Provider>
   )

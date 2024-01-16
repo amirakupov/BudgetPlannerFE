@@ -1,11 +1,21 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useContext} from 'react';
 import ChartsComponent from './ChartsComponent';
 import './HomePage.css'
 import './BalancePage.css';
-
-
+import './Sidebar'
+import Sidebar from './Sidebar';
+import { useNavigate } from 'react-router-dom';
+import AuthContext from '../context/AuthProvider';
 
 const HomePage = () => {
+    const { logout } = useContext(AuthContext);
+    const navigate = useNavigate();
+
+    const handleLogout = () => {
+        logout();
+        navigate("/");
+    };
+
     const [balance, setBalance] = useState(null);
 
     useEffect(() => {
@@ -32,6 +42,8 @@ const HomePage = () => {
     return (
         <div>
             <div className="home-page-container">
+                <Sidebar/>
+                <button onClick={handleLogout}>Logout</button>
                 <h1>Home Page</h1>
                 <p>Welcome</p>
                 {balance !== null ? (

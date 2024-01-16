@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 import { Navbar, Nav, Container } from 'react-bootstrap';
-import Navigation from './Navigation';
 import { useContext } from 'react';
 import AuthContext from './context/AuthProvider';
 import './App.css';
@@ -27,7 +26,6 @@ const App = () => {
   return (
       <Router>
         <div className="app-container">
-          <Navigation/>
           <Routes> 
             <Route path="/" element={<StartingPage />} />
             <Route path="/register" element={<Register />} />
