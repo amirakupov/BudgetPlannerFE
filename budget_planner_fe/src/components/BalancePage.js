@@ -16,7 +16,10 @@ const BalancePage = () => {
   const [balance, setBalance] = useState(0);
 
   useEffect(() => {
-    fetch('http://127.0.0.1:8000/balance')
+    fetch('http://127.0.0.1:8000/balance', {
+        method: 'GET',
+        credentials: 'include',
+      })
         .then(response => response.json())
         .then(data => {
           setBalance(data.balance);
