@@ -1,0 +1,65 @@
+.header {
+  align-items: center;
+  display: inline-flex;
+  gap: 138px;
+  padding: 32px 96px;
+  position: relative;
+}
+
+.header .text-wrapper {
+  color: #426b1f;
+  font-family: "Newsreader-Medium", Helvetica;
+  font-size: 32px;
+  font-weight: 500;
+  letter-spacing: -0.32px;
+  line-height: 32px;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.header .div {
+  color: #000000;
+  font-family: "Inter-Regular", Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 20.8px;
+  position: relative;
+  text-align: center;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.header .buttons-container {
+  display: inline-flex; /* Align buttons next to each other */
+  gap: 10px; /* Add some space between buttons */
+}
+
+.header .button {
+  background-color: #426b1f;
+  border-radius: 8px;
+  color: #ffffff;
+  font-family: "Inter-SemiBold", Helvetica;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  line-height: 48px; /* Adjust for button height */
+  width: 126px; /* Adjust for button width */
+  cursor: pointer; /* Optional: Changes cursor on hover */
+}
+
+.header .text-wrapper-2 {
+  color: #ffffff;
+  font-family: "Inter-SemiBold", Helvetica;
+  font-size: 16px;
+  font-weight: 600;
+  height: 21px;
+  left: 23px;
+  letter-spacing: 0;
+  line-height: 20.8px;
+  position: absolute;
+  text-align: center;
+  top: 12px;
+  white-space: nowrap;
+}
