@@ -1,9 +1,11 @@
 .header {
+  max-width: 100%;
   align-items: center;
-  display: inline-flex;
-  gap: 138px;
-  padding: 32px 96px;
+  display: flex;
+  gap: 20px;
+  padding: 20px;
   position: relative;
+  justify-content: center;
 }
 
 .header .text-wrapper {
@@ -32,8 +34,8 @@
 }
 
 .header .buttons-container {
-  display: inline-flex; /* Align buttons next to each other */
-  gap: 10px; /* Add some space between buttons */
+  display: flex;
+  gap: 10px;
 }
 
 .header .button {
@@ -63,3 +65,17 @@
   top: 12px;
   white-space: nowrap;
 }
+
+@media screen and (max-width: 768px) {
+  .header {
+    gap: 10px;
+    flex-direction: column;
+  }
+}
+
+.header .div, .header .text-wrapper, .header .buttons-container {
+  width: 100%;
+  text-align: center; /* Zentriert den Text in jedem Element */
+}
+
+
