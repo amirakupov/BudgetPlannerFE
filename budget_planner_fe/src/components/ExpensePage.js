@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import './ExpensePage.css';
 import Sidebar from './Sidebar';
+import Footer from "./Footer";
 
 const ExpensePage = () => {
   const [expenseData, setExpenseData] = useState({ amount: 0, name: '', description: '', isMonthly: false });
@@ -57,29 +58,6 @@ const ExpensePage = () => {
           </Form.Group>
           <Form.Group controlId="expenseCategory">
             <Form.Label>Category:</Form.Label>
-            <Form.Select name="category" value={expenseData.category} onChange={handleInputChange}>
-              <option value="Food">Food</option>
-              <option value="Bills">Bills</option>
-              <option value="Subscriptions">Subscriptions</option>
-              <option value="Groceries">Groceries</option>
-              <option value="Medicine">Medicine</option>
-              <option value="Investments">Investments</option>
-              <option value="Clothing">Clothing</option>
-              <option value="Rent">Rent</option>
-              <option value="Insurance">Insurance</option>
-              <option value="Car">Car</option>
-            </Form.Select>
-          </Form.Group>
-          <Form.Group controlId="regularExpense">
-            <Form.Check
-                type="checkbox"
-                label="Regular Expense"
-                checked={expenseData.isMonthly}
-                onChange={() => setExpenseData({ ...expenseData, isMonthly: !expenseData.isMonthly })}
-            />
-          </Form.Group>
-          <Form.Group controlId="expenseCategory">
-            <Form.Label>Category:</Form.Label>
             <Form.Control
                 as="select"
                 name="category"
@@ -92,10 +70,35 @@ const ExpensePage = () => {
               ))}
             </Form.Control>
           </Form.Group>
+          {/*<Form.Group controlId="expenseCategory">*/}
+          {/*  <Form.Label>Category:</Form.Label>*/}
+          {/*  <Form.Select name="category" value={expenseData.category} onChange={handleInputChange}>*/}
+          {/*    <option value="Food">Food</option>*/}
+          {/*    <option value="Bills">Bills</option>*/}
+          {/*    <option value="Subscriptions">Subscriptions</option>*/}
+          {/*    <option value="Groceries">Groceries</option>*/}
+          {/*    <option value="Medicine">Medicine</option>*/}
+          {/*    <option value="Investments">Investments</option>*/}
+          {/*    <option value="Clothing">Clothing</option>*/}
+          {/*    <option value="Rent">Rent</option>*/}
+          {/*    <option value="Insurance">Insurance</option>*/}
+          {/*    <option value="Car">Car</option>*/}
+          {/*  </Form.Select>*/}
+          {/*</Form.Group>*/}
+          <Form.Group controlId="regularExpense">
+            <Form.Check
+                type="checkbox"
+                label="Regular Expense"
+                checked={expenseData.isMonthly}
+                onChange={() => setExpenseData({ ...expenseData, isMonthly: !expenseData.isMonthly })}
+            />
+          </Form.Group>
+
           <Button variant="primary" type="submit">
             Add
           </Button>
         </Form>
+        <Footer />
       </div>
   );
 };

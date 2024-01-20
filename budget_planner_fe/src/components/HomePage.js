@@ -6,19 +6,20 @@ import './Sidebar'
 import Sidebar from './Sidebar';
 import { useNavigate } from 'react-router-dom';
 import AuthContext from '../context/AuthProvider';
+import Footer from "./Footer";
 
 const HomePage = () => {
-    const { logout } = useContext(AuthContext);
-    const navigate = useNavigate();
+    // const { logout } = useContext(AuthContext);
+    // const navigate = useNavigate();
     const [incomeData, setIncomeData] = useState(null);
     const [expenseData, setExpenseData] = useState(null);
     const [financialRecords, setFinancialRecords] = useState([]);// for incomes
     const [expenseRecords, setExpenseRecords] = useState([]);
 
-    const handleLogout = () => {
-        logout();
-        navigate("/");
-    };
+    // const handleLogout = () => {
+    //     logout();
+    //     navigate("/");
+    // };
 
     const [balance, setBalance] = useState(null);
 
@@ -93,7 +94,6 @@ const HomePage = () => {
         <div>
             <div className="home-page-container">
                 <Sidebar/>
-                <button onClick={handleLogout}>Logout</button>
                 <h1>Home Page</h1>
                 <p>Welcome</p>
                 {balance !== null ? (
@@ -166,6 +166,7 @@ const HomePage = () => {
                     </div>
                 </div>
             </div>
+            <Footer />
         </div>
     );
 };

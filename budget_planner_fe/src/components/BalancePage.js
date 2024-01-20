@@ -3,15 +3,9 @@ import './BalancePage.css'; // Импорт файла стилей
 import Sidebar from './Sidebar';
 import { useNavigate } from 'react-router-dom';
 import AuthContext from '../context/AuthProvider';
+import Footer from "./Footer";
 
 const BalancePage = () => {
-  const { logout } = useContext(AuthContext);
-  const navigate = useNavigate();
-
-  const handleLogout = () => {
-    logout();
-    navigate("/");
-};
 
   const [balance, setBalance] = useState(0);
 
@@ -30,16 +24,15 @@ const BalancePage = () => {
   }, []);
 
   return (
-      <div className="balance-page-container">
-        <Sidebar />
-        <button onClick={handleLogout}>Logout</button>
-        <h1>Balance Page</h1>
-        {balance !== null ? (
-            <p>Your Balance: {balance}</p>
-        ) : (
-            <p>Loading balance</p>
-        )}
-      </div>
+          <div className="balance-page-container">
+            <Sidebar />
+            <h1>Balance</h1>
+            {balance !== null ? (
+                <p>Your Balance: {balance}</p>
+            ) : (
+                <p>Loading balance</p>
+            )}
+          </div>
   );
 };
 
