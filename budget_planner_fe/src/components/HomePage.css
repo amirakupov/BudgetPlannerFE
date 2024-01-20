@@ -78,21 +78,56 @@ h1 {
     margin-right: 5px;
 }
 
+
+
+/*financial records*/
+
+.table-container {
+    margin: auto;
+    max-width: 800px; /* Максимальная ширина таблицы */
+}
+
+.table-container table {
+    width: 100%;
+    margin-bottom: 1rem; /* Пробел между таблицей и другими элементами */
+}
+
+.table-container th,
+.table-container td {
+    text-align: center; /* Выравнивание текста по центру */
+    padding: 0.75rem; /* Внутренний отступ ячеек */
+}
+
+/* Добавление Bootstrap стилей */
+.table-container table {
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+    border-collapse: collapse;
+}
+
+.table-container th,
+.table-container td {
+    border: 1px solid #dee2e6;
+}
+
+
 @media (min-width: 768px) {
-    /* Стили для компьютерной версии */
+    /* PC */
     #chartCanvas {
         max-width: 600px;
+        margin: 0 auto 0 250px;
+        display: block;
     }
 
     .mini-chart {
-        grid-column: 1 / span 1; /* Определяем расположение круговой диаграммы в первом столбце */
+        grid-column: 1 / span 1;
     }
 
     .labels-container {
         grid-column: 2 / span 1;
         display: flex;
         flex-direction: column;
-        align-items: flex-start; /* Располагаем лэйблы в начале столбца */
+        align-items: flex-start;
     }
 
     .mini-chart canvas {

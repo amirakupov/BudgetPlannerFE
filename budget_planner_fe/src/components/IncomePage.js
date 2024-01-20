@@ -5,7 +5,9 @@ import ChartsComponent from "./ChartsComponent";
 import Sidebar from './Sidebar';
 
 const IncomePage = () => {
-  const [incomeData, setIncomeData] = useState({ amount: 0, name: '', isMonthly: false, comment: '' });
+  const [incomeData, setIncomeData] = useState({
+    amount: 0, name: '', isMonthly: false, category: 'Salary', comment: ''
+  });
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -46,6 +48,15 @@ const IncomePage = () => {
           <Form.Group controlId="incomeComment">
             <Form.Label>Comment:</Form.Label>
             <Form.Control type="text" name="comment" value={incomeData.comment} onChange={handleInputChange} />
+          </Form.Group>
+          <Form.Group controlId="incomeCategory">
+            <Form.Label>Category:</Form.Label>
+            <Form.Select name="category" value={incomeData.category} onChange={handleInputChange}>
+              <option value="Salary">Salary</option>
+              <option value="Investment Dividends">Investment Dividends</option>
+              <option value="Capital Gain">Capital Gain</option>
+              <option value="Additional Income">Additional Income</option>
+            </Form.Select>
           </Form.Group>
           <Form.Group controlId="regularIncome">
             <Form.Check

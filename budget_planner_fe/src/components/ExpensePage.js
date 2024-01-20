@@ -45,6 +45,21 @@ const ExpensePage = () => {
             <Form.Label>Comment:</Form.Label>
             <Form.Control type="text" name="comment" value={expenseData.comment} onChange={handleInputChange} />
           </Form.Group>
+          <Form.Group controlId="expenseCategory">
+            <Form.Label>Category:</Form.Label>
+            <Form.Select name="category" value={expenseData.category} onChange={handleInputChange}>
+              <option value="Food">Food</option>
+              <option value="Bills">Bills</option>
+              <option value="Subscriptions">Subscriptions</option>
+              <option value="Groceries">Groceries</option>
+              <option value="Medicine">Medicine</option>
+              <option value="Investments">Investments</option>
+              <option value="Clothing">Clothing</option>
+              <option value="Rent">Rent</option>
+              <option value="Insurance">Insurance</option>
+              <option value="Car">Car</option>
+            </Form.Select>
+          </Form.Group>
           <Form.Group controlId="regularExpense">
             <Form.Check
                 type="checkbox"
