@@ -1,10 +1,20 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import './ExpensePage.css';
 import Sidebar from './Sidebar';
 
 const ExpensePage = () => {
-  const [expenseData, setExpenseData] = useState({ amount: 0, name: '', comment: '', isMonthly: false });
+  const [expenseData, setExpenseData] = useState({ amount: 0, name: '', description: '', isMonthly: false });
+  const [expenseCategories, setExpenseCategories] = useState([]);
+
+  useEffect(() => {
+    // Fetch expense categories
+    fetch('http://127.0.0.1:8000/expense-categories')
+        .then(response => response.json())
+        .then(data => setExpenseCategories(data));
+  }, []);
+
+
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -41,9 +51,9 @@ const ExpensePage = () => {
             <Form.Label>Amount:</Form.Label>
             <Form.Control type="number" name="amount" value={expenseData.amount} onChange={handleInputChange} />
           </Form.Group>
-          <Form.Group controlId="expenseComment">
-            <Form.Label>Comment:</Form.Label>
-            <Form.Control type="text" name="comment" value={expenseData.comment} onChange={handleInputChange} />
+          <Form.Group controlId="expenseDescription">
+            <Form.Label>Description:</Form.Label>
+            <Form.Control type="text" name="desciption" value={expenseData.description} onChange={handleInputChange} />
           </Form.Group>
           <Form.Group controlId="expenseCategory">
             <Form.Label>Category:</Form.Label>
@@ -67,6 +77,20 @@ const ExpensePage = () => {
                 checked={expenseData.isMonthly}
                 onChange={() => setExpenseData({ ...expenseData, isMonthly: !expenseData.isMonthly })}
             />
+          </Form.Group>
+          <Form.Group controlId="expenseCategory">
+            <Form.Label>Category:</Form.Label>
+            <Form.Control
+                as="select"
+                name="category"
+                value={expenseData.category}
+                onChange={handleInputChange}
+            >
+              <option value="">Select a Category</option>
+              {expenseCategories.map(category => (
+                  <option key={category} value={category}>{category}</option>
+              ))}
+            </Form.Control>
           </Form.Group>
           <Button variant="primary" type="submit">
             Add

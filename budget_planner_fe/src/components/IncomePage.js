@@ -1,13 +1,19 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import './IncomePage.css';
 import ChartsComponent from "./ChartsComponent";
 import Sidebar from './Sidebar';
 
 const IncomePage = () => {
-  const [incomeData, setIncomeData] = useState({
-    amount: 0, name: '', isMonthly: false, category: 'Salary', comment: ''
-  });
+  const [incomeData, setIncomeData] = useState({ amount: 0, name: '', isMonthly: false, category: 'Salary', description: '' });
+  const [incomeCategories, setIncomeCategories] = useState([]);
+
+  useEffect(() => {
+    fetch('http://127.0.0.1:8000/income-categories')
+        .then(response => response.json())
+        .then(data => setIncomeCategories(data));
+  }, []);
+
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -45,9 +51,9 @@ const IncomePage = () => {
             <Form.Label>Amount:</Form.Label>
             <Form.Control type="number" name="amount" value={incomeData.amount} onChange={handleInputChange} />
           </Form.Group>
-          <Form.Group controlId="incomeComment">
-            <Form.Label>Comment:</Form.Label>
-            <Form.Control type="text" name="comment" value={incomeData.comment} onChange={handleInputChange} />
+          <Form.Group controlId="incomeDescription">
+            <Form.Label>Description:</Form.Label>
+            <Form.Control type="text" name="description" value={incomeData.description} onChange={handleInputChange} />
           </Form.Group>
           <Form.Group controlId="incomeCategory">
             <Form.Label>Category:</Form.Label>
@@ -65,6 +71,22 @@ const IncomePage = () => {
                 checked={incomeData.isMonthly}
                 onChange={() => setIncomeData({ ...incomeData, isMonthly: !incomeData.isMonthly })}
             />
+          </Form.Group>
+          <Form.Group controlId="incomeCategory">
+            <Form.Label>Category:</Form.Label>
+            <Form.Control
+                as="select"
+                name="category"
+                value={incomeData.category}
+                onChange={handleInputChange}
+            >
+              <option value="">Select a Category</option>
+              {incomeCategories.map((category) => (
+                  <option key={category} value={category}>
+                    {category}
+                  </option>
+              ))}
+            </Form.Control>
           </Form.Group>
           <Button variant="primary" type="submit">
             Add Income
