@@ -3,7 +3,11 @@ import { Form, Button } from 'react-bootstrap';
 import './IncomePage.css';
 import ChartsComponent from "./ChartsComponent";
 import Sidebar from './Sidebar';
+import { ToastContainer } from 'react-toastify';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Footer from "./Footer";
+
 
 const IncomePage = () => {
   const [incomeData, setIncomeData] = useState({ amount: 0, name: '', isMonthly: false, category: 'Salary', description: '' });
@@ -33,6 +37,18 @@ const IncomePage = () => {
         },
         body: JSON.stringify(incomeData),
       });
+      if (response.ok) {
+
+        toast.success('Income added successfully!', {
+          position: 'top-right',
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+        });
+        setIncomeData({ amount: 0, name: '', isMonthly: false, category: 'Salary', description: '' });
+      }
 
     } catch (error) {
       console.error('error while adding:', error);
@@ -40,7 +56,7 @@ const IncomePage = () => {
   };
 
   return (
-      <div className="income-page-container">
+      <div className="income-page-container" style={{fontFamily: 'Space Grotesk, sans-serif'}}>
         <Sidebar />
         <h2>Add Income</h2>
         <Form onSubmit={addIncome} className="income-form">
@@ -72,15 +88,6 @@ const IncomePage = () => {
               ))}
             </Form.Control>
           </Form.Group>
-          {/*<Form.Group controlId="incomeCategory">*/}
-          {/*  <Form.Label>Category:</Form.Label>*/}
-          {/*  <Form.Select name="category" value={incomeData.category} onChange={handleInputChange}>*/}
-          {/*    <option value="Salary">Salary</option>*/}
-          {/*    <option value="Investment Dividends">Investment Dividends</option>*/}
-          {/*    <option value="Capital Gain">Capital Gain</option>*/}
-          {/*    <option value="Additional Income">Additional Income</option>*/}
-          {/*  </Form.Select>*/}
-          {/*</Form.Group>*/}
           <Form.Group controlId="regularIncome">
             <Form.Check
                 type="checkbox"
@@ -91,10 +98,11 @@ const IncomePage = () => {
           </Form.Group>
 
           <Button variant="primary" type="submit">
-            Add Income
+            Add
           </Button>
         </Form>
         <Footer />
+        <ToastContainer />
       </div>
   );
 };

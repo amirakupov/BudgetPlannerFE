@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import './ExpensePage.css';
 import Sidebar from './Sidebar';
+import { ToastContainer } from 'react-toastify';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Footer from "./Footer";
 
 const ExpensePage = () => {
@@ -33,6 +36,18 @@ const ExpensePage = () => {
         },
         body: JSON.stringify(expenseData),
       });
+      if (response.ok) {
+
+        toast.success('Expense added successfully!', {
+          position: 'top-right',
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+        });
+        setExpenseData({ amount: 0, name: '', isMonthly: false, category: 'Salary', description: '' });
+      }
 
     } catch (error) {
       console.error('error while adding:', error);
@@ -40,7 +55,7 @@ const ExpensePage = () => {
   };
 
   return (
-      <div className="expense-page-container">
+      <div className="expense-page-container" style={{fontFamily: 'Space Grotesk, sans-serif'}}>
         <Sidebar />
         <h2>Add Expense</h2>
         <Form onSubmit={addExpense} className="expense-form">
@@ -70,21 +85,6 @@ const ExpensePage = () => {
               ))}
             </Form.Control>
           </Form.Group>
-          {/*<Form.Group controlId="expenseCategory">*/}
-          {/*  <Form.Label>Category:</Form.Label>*/}
-          {/*  <Form.Select name="category" value={expenseData.category} onChange={handleInputChange}>*/}
-          {/*    <option value="Food">Food</option>*/}
-          {/*    <option value="Bills">Bills</option>*/}
-          {/*    <option value="Subscriptions">Subscriptions</option>*/}
-          {/*    <option value="Groceries">Groceries</option>*/}
-          {/*    <option value="Medicine">Medicine</option>*/}
-          {/*    <option value="Investments">Investments</option>*/}
-          {/*    <option value="Clothing">Clothing</option>*/}
-          {/*    <option value="Rent">Rent</option>*/}
-          {/*    <option value="Insurance">Insurance</option>*/}
-          {/*    <option value="Car">Car</option>*/}
-          {/*  </Form.Select>*/}
-          {/*</Form.Group>*/}
           <Form.Group controlId="regularExpense">
             <Form.Check
                 type="checkbox"
@@ -99,6 +99,7 @@ const ExpensePage = () => {
           </Button>
         </Form>
         <Footer />
+        <ToastContainer />
       </div>
   );
 };

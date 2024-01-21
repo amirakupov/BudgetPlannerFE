@@ -54,11 +54,24 @@ h2 {
     background-color: #30c280;
     color: #fff;
     border: none;
-    border-radius: 5px;
+    border-radius: 20px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
+.expense-form button:hover {
+    background-color: #16cc68;
+}
+
+.expense-form select {
+    width: 100%;
+    padding: 10px;
+    font-size: 1em;
+    margin-top: 5px;
+    box-sizing: border-box;
+    border: 1px solid #adf7d6;
+    border-radius: 3px;
+}
 @media screen and (max-width: 768px) {
     .expense-form {
         padding: 15px;

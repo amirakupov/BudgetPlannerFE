@@ -24,11 +24,11 @@ const BalancePage = () => {
   }, []);
 
   return (
-          <div className="balance-page-container">
+          <div className="balance-page-container" style={{fontFamily: 'Space Grotesk, sans-serif'}}>
             <Sidebar />
             <h1>Balance</h1>
             {balance !== null ? (
-                <p>Your Balance: {balance}</p>
+                <p>Your Balance: {balance}€</p>
             ) : (
                 <p>Loading balance</p>
             )}

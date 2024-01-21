@@ -23,15 +23,27 @@ h1 {
 
 .balance-link:hover {
     background-color: #30c280;
+
+
+    &.income-button:hover {
+         background-color: #2aaf4e;
+     }
+
+
+
+    &.expense-button:hover {
+         background-color: #8d1634;
+     }
 }
+
 .income-button {
-    /* Специфичные стили для кнопки Add Income */
-    background-color: #2ecc71;
+
+    background-color: #128c49;
 }
 
 .expense-button {
-    /* Специфичные стили для кнопки Add Expense */
-    background-color: #e74c3c;
+
+    background-color: #992343;
 }
 
 

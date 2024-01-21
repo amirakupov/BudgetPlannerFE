@@ -1,0 +1,29 @@
+.loader-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f5f5d7;
+    overflow: hidden;
+}
+
+.loader-text {
+    font-size: 24px;
+    font-weight: bold;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease, transform 1s ease;
+    color: #92b359;
+}
+
+.loading .loader-text {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.loaded .loader-text {
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+

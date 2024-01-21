@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "chart.js": "^4.4.1",
+    "gsap": "^3.12.5",
     "react-chartjs-2": "^5.2.0"
   }
 }

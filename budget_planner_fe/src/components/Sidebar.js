@@ -53,7 +53,7 @@ const Sidebar = () => {
         navigate("/");
     };
     return (
-        <div id="nav-bar">
+        <div id="nav-bar" style={{fontFamily: 'Space Grotesk, sans-serif'}}>
             <input type="checkbox" id="nav-toggle" />
             <div id="nav-header">
                 <span id="nav-title">Accountable</span>

@@ -52,12 +52,25 @@ h2 {
     width: 100%;
     padding: 10px;
     font-size: 1em;
-    background-color: #30c280;
+    background-color: #2aaf4e;
     color: #fff;
     border: none;
-    border-radius: 5px;
+    border-radius: 30px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+}
+.income-form button:hover {
+    background-color: #16cc68;
+}
+
+.income-form select {
+    width: 100%;
+    padding: 10px;
+    font-size: 1em;
+    margin-top: 5px;
+    box-sizing: border-box;
+    border: 1px solid #adf7d6;
+    border-radius: 3px;
 }
 
 @media screen and (max-width: 768px) {
