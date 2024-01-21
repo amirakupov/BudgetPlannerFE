@@ -6,15 +6,22 @@ import image2 from '../assets/image2.png'
 
 export const BudgeText = () => {
     return (
-        <div>
-            <div className="BudgeText">
-                <span className="text-wrapper">Welcome to Accountable: </span>
-                <span className="span">Your Personal Budget Planner! </span>
+
+        <div className="container mt-5">
+            <div className="BudgeText text-center">
+                <h1 className="mb-4">
+                    Welcome to Accountable!
+                </h1>
+                <p className="lead">
+                    Your Personal Budget Planner
+                </p>
             </div>
 
-            <div className="image-container">
-                <img src={image1} alt="Income Chart" />
-                <img src={image2} alt="Expense Chart" />
+            <div className="row justify-content-center mb-5">
+                <div className="image-container">
+                    <img src={image1} alt="Income Chart" />
+                    <img src={image2} alt="Expense Chart" />
+                </div>
             </div>
 
             <div className="believe-section" id="what-we-believe">

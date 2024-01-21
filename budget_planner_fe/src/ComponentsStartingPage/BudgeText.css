@@ -7,6 +7,12 @@ height: auto;
 width: 100%;
 margin-top: 100px;
 }
+.BudgeText h1,
+.BudgeText p,
+.BudgeText .label-text1,
+.BudgeText .label-text2 {
+    font-family: 'Space Grotesk', sans-serif;
+}
 
 .BudgeText .text-wrapper,
 .BudgeText .span {
@@ -23,6 +29,11 @@ margin-top: 100px;
     font-family: "Newsreader-Italic", Helvetica;
     font-style: italic;
 }
+.BudgeText img {
+    height: 200px;
+    max-width: 100%;
+}
+
 
 @media screen and (max-width: 768px) {
     .BudgeText .text-wrapper,
@@ -41,6 +52,7 @@ margin-top: 100px;
 }
 
 .image-container img {
+    height: auto;
     width: 50%; /* Stellt sicher, dass jedes Bild 50% der Breite des Containers einnimmt */
     max-width: 600px; /* oder eine maximale Breite, um zu große Bilder zu verhindern */
 }

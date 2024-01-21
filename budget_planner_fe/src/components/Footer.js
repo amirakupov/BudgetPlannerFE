@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap styles
 
 const Footer = () => {
     return (
-        <footer className="footer py-5" style={{ backgroundColor: '#fafaf2', color: '#92b359' }}>
+        <footer className="footer py-5" style={{ backgroundColor: '#fafaf2', color: '#92b359', fontFamily: 'Space Grotesk, sans-serif' }}>
             <div className="container-lg d-flex flex-column" style={{ minHeight: '50vh' }}>
                 <div className="row">
                     <div className="col-md-4 text-end">
