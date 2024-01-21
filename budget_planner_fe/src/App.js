@@ -30,14 +30,12 @@ const App = () => {
             <Route path="/" element={<StartingPage />} />
             <Route path="/register" element={<Register />} />
             <Route path="/login" element={<Login />} />
-            {auth.user && (
             <>
             <Route path="/homepage" element={<HomePage />} />
             <Route path="/balance" element={<BalancePage />} />
             <Route path="/income" element={<IncomePage />} />
             <Route path="/expense" element={<ExpensePage />} />
             </>
-            )}
           </Routes>
         </div>
       </Router>
