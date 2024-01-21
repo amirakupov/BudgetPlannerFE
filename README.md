@@ -4,7 +4,7 @@ Welcome to the Budget Planner backend, a robust solution for managing financial 
 
 ## Getting Started
 
-This frontend is designed to work seamlessly with the Budget Planner backend. Follow the steps below to set up and run the backend server.
+This frontend is designed to work seamlessly with the Budget Planner backend. Follow the steps below to set up and run the frontend server.
 
 ### npm start
 
