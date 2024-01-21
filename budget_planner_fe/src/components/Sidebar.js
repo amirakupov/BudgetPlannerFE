@@ -1,5 +1,5 @@
 import React, {useContext, useEffect, useState} from 'react';
-import { Link } from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import './Sidebar.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -14,7 +14,7 @@ import AuthContext from "../context/AuthProvider";
 
 const Sidebar = () => {
     const [userInfo, setUserInfo] = useState(null);
-    const { logout } = useContext(AuthContext);
+    const navigate = useNavigate();
 
     useEffect(() => {
         // Fetch user details from the backend
@@ -31,7 +31,26 @@ const Sidebar = () => {
             });
     }, []);
     const handleLogout = () => {
-        logout();
+        fetch('http://127.0.0.1:8000/logout', {
+            method: 'POST',
+            credentials: 'include',
+        })
+            .then(response => {
+                if (response.ok) {
+                    console.log('Logout successful');
+                } else {
+                    console.error('Logout failed');
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log(data);
+            })
+            .catch(error => {
+                console.error('Error during logout:', error);
+            });
+
+        navigate("/");
     };
     return (
         <div id="nav-bar">
@@ -60,7 +79,7 @@ const Sidebar = () => {
                     <FontAwesomeIcon icon={faBalanceScale} />
                     <span>Balance</span>
                 </Link>
-                <Link to="/logout" className="nav-button" onClick={handleLogout}>
+                <Link to="/" className="nav-button" onClick={handleLogout}>
                     <FontAwesomeIcon icon={faSignOutAlt} />
                     <span>Logout</span>
                 </Link>
