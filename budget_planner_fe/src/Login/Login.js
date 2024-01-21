@@ -32,7 +32,7 @@ const Login = () => {
       const response = await axios.post(
         LOGIN_URL,
         {
-          username: user,
+          login: user,
           password: pwd
         },
          {
@@ -77,7 +77,7 @@ const Login = () => {
       <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-aria-live='assertive'>{errMsg}</p>
       <h1>Sign In</h1>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="username">Username</label>
+        <label htmlFor="username">Username or E-Mail</label>
         <input 
         type="text"  
         id="username"
@@ -86,6 +86,7 @@ const Login = () => {
         onChange={(e) => setUser(e.target.value)}
         value={user}
         required
+        placeholder="Enter username or email"
         />
         
         <label htmlFor="password">Password</label>
