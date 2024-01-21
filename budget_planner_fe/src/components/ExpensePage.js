@@ -69,7 +69,7 @@ const ExpensePage = () => {
           </Form.Group>
           <Form.Group controlId="expenseDescription">
             <Form.Label>Description:</Form.Label>
-            <Form.Control type="text" name="desciption" value={expenseData.description} onChange={handleInputChange} />
+            <Form.Control type="text" name="description" value={expenseData.description} onChange={handleInputChange} />
           </Form.Group>
           <Form.Group controlId="expenseCategory">
             <Form.Label>Category:</Form.Label>
